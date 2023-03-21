@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const url = 'http://norvig.com/big.txt';
 
-
 const init = () => {
     /* Main function where we calling the api to get the data */
     axios.get(url)
@@ -21,7 +20,6 @@ const readDoc = (data) => {
     const words = data.toLowerCase().match(/\b\w+\b/g);
 
     // using reduce function to get the list of all words with the count
-
     const wordCount = words.reduce((acc, word) => {
         if (acc[word]) acc[word]++;
         else acc[word] = 1;
@@ -31,7 +29,6 @@ const readDoc = (data) => {
     // sorting the words in desending order based on the count
     // taking only the first 10 records after sorted
     // mapping the 10 records to get the final result
-
     const topWords = Object.entries(wordCount)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10)
